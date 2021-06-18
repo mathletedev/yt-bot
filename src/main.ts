@@ -1,4 +1,4 @@
-import { Client } from "eris";
+import { Client, TextChannel } from "eris";
 import { Base } from "eris-sharder";
 
 export = class Bot extends Base {
@@ -7,6 +7,19 @@ export = class Bot extends Base {
 	}
 
 	public launch() {
+		this.bot.on("messageCreate", (msg) => {
+			if (!msg.guildID) return;
+
+			if (msg.content === "!ping") {
+				(msg.channel as TextChannel).createMessage("pong!");
+			}
+		});
+
+		this.bot.editStatus("dnd", {
+			name: "YouTube",
+			type: 0
+		});
+
 		console.log("Bot is online!");
 	}
 };

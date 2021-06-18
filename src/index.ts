@@ -6,5 +6,3 @@ const _ = new Master(process.env.BOT_TOKEN!, "/dist/main.js", {
 	stats: true,
 	clientOptions: {}
 });
-
-console.log("hi");
